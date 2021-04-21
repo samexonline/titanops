@@ -1,0 +1,10 @@
+<?php $config = array(
+    "database_type"=>"mysql",
+    "database_name"=>"titanops",
+    "server"=>"localhost",
+    "username"=>"root",
+    "password"=>"thematrix",
+    "charset"=>"utf8",
+    "port"=>3306,
+    "encryption_key"=>"af0ca28acb7292a5df88739de2308be18c61f068b779574b910dae05c341501e",
+	"encryption_iv"=>"1037814c9d58ff9308ee1e21c3c5fe37a8f3c5ddc7c08d6cd7535da4691a1a2f" ); ?>
