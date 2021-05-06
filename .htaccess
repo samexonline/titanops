@@ -1,0 +1,18 @@
+AddDefaultCharset utf-8
+<IfModule mod_rewrite.c>
+RewriteEngine on
+RewriteCond $1 !^(index\.php|resources|robots\.txt)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php?/$1 [L,QSA]
+</IfModule>
+
+Options +FollowSymLinks
+
+RewriteEngine On
+
+RewriteCond %{ENV:REDIRECT_SUBDOMAIN} ="" 
+RewriteCond %{HTTP_HOST} ^([a-z0-9][-a-z0-9]+)\.titanops\.io\.?(:80)?$ [NC] 
+RewriteCond %{DOCUMENT_ROOT}/subdomains/%1 -d 
+RewriteRule ^(.*) subdomains/%1/$1 [E=SUBDOMAIN:%1,L] 
+RewriteRule ^ - [E=SUBDOMAIN:%{ENV:REDIRECT_SUBDOMAIN},L]
